@@ -4,8 +4,7 @@
     "config:best-practices"
   ],
   "automerge": false,
-  "timezone": "UTC",
-  "schedule": ["on friday"],
+  "timezone": "Europe/Amsterdam",
   "minimumReleaseAge": "3 days",
   "vulnerabilityAlerts": {
     "enabled": true,
