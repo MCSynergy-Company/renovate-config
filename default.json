@@ -13,6 +13,12 @@
     "groupName": "Security Fixes",
     "addLabels": ["security"]
   },
+  "nuget": {
+    "registryUrls": [
+      "https://api.nuget.org/v3/index.json",
+      "https://nuget.riderapp.nl/v3/index.json"
+    ]
+  },
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch"],
@@ -22,10 +28,7 @@
     },
     {
       "matchManagers": ["nuget"],
-      "matchPackagePatterns": ["MCSynergy.RideR"],
-      "registryUrls": [
-        "https://nuget.riderapp.nl/v3/index.json"
-      ]
+      "matchPackagePatterns": ["MCSynergy.RideR"]
     }
   ]
 }
