@@ -29,7 +29,7 @@
       "groupSlug": "combined-non-major"
     },
     {
-      "matchPackagePatterns": ["MCSynergy.*"],
+      "matchPackagePatterns": ["MCSynergy.RideR"],
       "registryUrls": [
         "https://nuget.riderapp.nl/v3/index.json"
       ]
