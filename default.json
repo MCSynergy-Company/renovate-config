@@ -13,12 +13,26 @@
     "groupName": "Security Fixes",
     "addLabels": ["security"]
   },
+  "hostRules": [
+    {
+      "matchHost": "https://nuget.riderapp.nl/v3/index.json",
+      "hostType": "nuget",
+      "username": "user",
+      "password": "{{ BAGET_API_KEY }}"
+    }
+  ],
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "!/^0/",
       "groupName": "Weekly Non-Major Updates",
       "groupSlug": "combined-non-major"
+    },
+    {
+      "matchPackagePatterns": ["MCSynergy.*"],
+      "registryUrls": [
+        "https://nuget.riderapp.nl/v3/index.json"
+      ]
     }
   ]
 }
