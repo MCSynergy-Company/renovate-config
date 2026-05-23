@@ -1,7 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:best-practices"
+    "config:best-practices",
+    ":pinDigests"
   ],
   "automerge": false,
   "timezone": "Europe/Amsterdam",
@@ -21,14 +22,25 @@
   },
   "packageRules": [
     {
+      "description": "Bundle stable minor and patch updates into a single weekly PR to reduce pull request noise.",
       "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "!/^0/",
+      "schedule": ["before 8am on monday"],
       "groupName": "Weekly Non-Major Updates",
-      "groupSlug": "combined-non-major"
+      "groupSlug": "weekly-minor-patch"
     },
     {
+      "description": "Isolate internal RideR NuGet packages into a dedicated group so team updates aren't mixed with public ecosystem noise.",
       "matchManagers": ["nuget"],
-      "matchPackagePatterns": ["MCSynergy.RideR"]
+      "matchPackagePatterns": ["^MCSynergy\\.RideR"],
+      "groupName": "Internal RideR Updates",
+      "groupSlug": "internal-rider-deps"
+    },
+    {
+      "description": "Force untagged or 'latest' Docker images to resolve to a precise semantic version tag whenever pinning digests.",
+      "matchDatasources": ["docker"],
+      "matchCurrentVersion": "/^latest$/",
+      "pinDigests": true
     }
   ]
 }
